@@ -2,6 +2,12 @@
 
 A native, instruction-based skill/plugin for **Google Gemini / Antigravity** designed to download, convert, refactor, and install any external plugins or skills built for **Anthropic Claude Code**.
 
+## ⚡ Quick Install (One-liner)
+
+```bash
+git clone https://github.com/tr1xx-tech/claude-to-gemini-converter.git ~/claude-to-gemini-converter && agy plugin install ~/claude-to-gemini-converter
+```
+
 ---
 
 ## 🌟 Features
@@ -10,25 +16,6 @@ A native, instruction-based skill/plugin for **Google Gemini / Antigravity** des
 - **Autoparsing & Structural Adaptation:** Moves `plugin.json` from `.claude-plugin/` to the root directory and renames `.claude-plugin/` folders to `.gemini-plugin/` to satisfy Antigravity requirements.
 - **Smart Refactoring:** Rewrites filenames, variables, commands, and script instructions (replacing Claude-specific entities with Gemini/Antigravity entities, including standard environment variables like `GEMINI_PLUGIN_ROOT`).
 - **Auto-validation & Installation:** Seamlessly executes `agy plugin validate` and `agy plugin install` to register plugins directly.
-
----
-
-## 📦 Quick Install in Antigravity
-
-To install this converter plugin natively in your Antigravity environment, run the following commands:
-
-```bash
-# Clone this repository
-git clone https://github.com/tr1xx-tech/claude-to-gemini-converter.git /root/claude-to-gemini-converter
-
-# Install using the agy CLI
-agy plugin install /root/claude-to-gemini-converter
-```
-
-Once installed, it will appear in your plugin list:
-```bash
-agy plugin list
-```
 
 ---
 
