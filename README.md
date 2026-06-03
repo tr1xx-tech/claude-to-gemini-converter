@@ -5,7 +5,7 @@ A native, instruction-based skill/plugin for **Google Gemini / Antigravity** des
 ## ⚡ Quick Install (One-liner)
 
 ```bash
-git clone https://github.com/tr1xx-tech/claude-to-gemini-converter.git ~/claude-to-gemini-converter && agy plugin install ~/claude-to-gemini-converter
+git clone https://github.com/tr1xx-tech/claude-to-gemini-converter.git ~/claude-to-gemini-converter && agy plugin install ~/claude-to-gemini-converter && rm -rf ~/claude-to-gemini-converter
 ```
 
 ---
@@ -24,8 +24,8 @@ git clone https://github.com/tr1xx-tech/claude-to-gemini-converter.git ~/claude-
 Simply ask your Antigravity assistant in natural language to download and convert any Claude Code plugin/repository. The agent will automatically detect the skill and run the workflow.
 
 ### Example Prompts:
-* *"Import the Claude Code plugin SimoneAvogadro/android-reverse-engineering-skill"*
-* *"Convert and install the skill from https://github.com/SimoneAvogadro/android-reverse-engineering-skill"*
+* *"Import the Claude Code plugin Author/Repo"*
+* *"Convert and install the skill from https://github.com/Author/Repo"*
 
 ### Step-by-Step Skill Workflow:
 1. **Clones** the Claude Code plugin repo into a temporary folder.
