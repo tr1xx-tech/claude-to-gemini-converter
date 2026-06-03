@@ -1,0 +1,9 @@
+{
+  "name": "claude-to-gemini-converter",
+  "version": "1.0.0",
+  "description": "Download Claude Code plugins/skills, edit/format them for Antigravity/Gemini, and install them.",
+  "author": {
+    "name": "Antigravity Agent"
+  },
+  "skills": "./skills/"
+}
