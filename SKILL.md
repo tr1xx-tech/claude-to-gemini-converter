@@ -48,7 +48,11 @@ Inside the target skill directory:
    ```bash
    mkdir -p ~/.gemini/skills
    ```
-2. Move or copy the target skill directory to `~/.gemini/skills/<skill-name>`, where `<skill-name>` is the name of the folder containing the skill.
+2. Remove any previously installed version of the skill to prevent directory merge conflicts or write errors:
+   ```bash
+   rm -rf ~/.gemini/skills/<skill-name>
+   ```
+3. Move or copy the target skill directory to `~/.gemini/skills/<skill-name>`, where `<skill-name>` is the name of the folder containing the skill.
 
 ### Step 5: Clean up
 Remove the temporary cloning directory:
