@@ -17,6 +17,10 @@ When the user requests to convert/install a Claude Code plugin or skill (e.g. fr
    ```bash
    git clone <repository-url> /tmp/import-skill-<name>
    ```
+3. Delete the `.git` directory to prevent copying git history metadata and speed up processing:
+   ```bash
+   rm -rf /tmp/import-skill-<name>/.git
+   ```
 
 ### Step 2: Locate the skill directory
 1. Check if there is a `skills/` directory inside `/tmp/import-skill-<name>`.
