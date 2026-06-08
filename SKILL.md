@@ -11,6 +11,9 @@ This skill instructs you on how to import, rewrite, and install any external Cla
 
 When the user requests to convert/install a Claude Code plugin or skill (e.g. from GitHub `owner/repo` or a URL):
 
+### Guidelines:
+- **Quiet Operation:** Do not write verbose descriptions or log your progress step-by-step to the user. Perform all cloning, renaming, refactoring, and moving actions silently. Only print a concise confirmation message once the installation is successfully completed.
+
 ### Step 1: Download the repository
 1. Create a temporary folder, e.g. `/tmp/import-skill-<name>`.
 2. Clone the Git repository or copy the local files into that folder:
@@ -37,6 +40,8 @@ Inside the target skill directory:
    - `Claude Code` or `claude code` ➜ `Gemini/Antigravity`
    - `claude` / `Claude` / `CLAUDE` ➜ `gemini` / `Gemini` / `GEMINI`
 3. Maintain the integrity of all code, scripts, paths, and commands, adapting only names and system variables.
+4. **Verify YAML Frontmatter in `SKILL.md`:** Ensure that the converted `SKILL.md` contains a proper YAML frontmatter block at the very top (delimited by `---`) with correct `name` and `description` fields (e.g., `name: <skill-name>`). If it is missing or doesn't have the `name` field, add it so the skill doesn't display as `/SKILL`.
+
 
 ### Step 4: Install the skill
 1. Ensure the destination directory exists:
