@@ -9,53 +9,41 @@ This skill instructs you on how to import, rewrite, and install any external Cla
 
 ## Workflow
 
-When the user requests to convert/install a Claude Code plugin (e.g. from GitHub `owner/repo` or a URL):
+When the user requests to convert/install a Claude Code plugin or skill (e.g. from GitHub `owner/repo` or a URL):
 
-### Step 1: Download the plugin
-1. Create a temporary folder, e.g. `/tmp/import-plugin-<name>`.
+### Step 1: Download the repository
+1. Create a temporary folder, e.g. `/tmp/import-skill-<name>`.
 2. Clone the Git repository or copy the local files into that folder:
    ```bash
-   git clone <repository-url> /tmp/import-plugin-<name>
+   git clone <repository-url> /tmp/import-skill-<name>
    ```
 
-### Step 2: Restructure directory
-1. Locate the `plugin.json` file.
-   - If it is located under `.claude-plugin/plugin.json`, move it to the root of the plugin directory as `plugin.json`.
-   - If no `plugin.json` exists but there is a `SKILL.md` file, create a default `plugin.json` in the root:
-     ```json
-     {
-       "name": "<sanitized-plugin-name>",
-       "version": "1.0.0",
-       "description": "Converted Claude Code plugin",
-       "skills": "./"
-     }
-     ```
-2. Rename the `.claude-plugin` directory to `.gemini-plugin` or `.antigravity-plugin` if it exists.
+### Step 2: Locate the skill directory
+1. Check if there is a `skills/` directory inside `/tmp/import-skill-<name>`.
+   - If a `skills/` directory exists, look inside it for the subfolder containing `SKILL.md` (for example, `skills/<skill-name>/`). That subfolder will be your target skill directory.
+   - If no `skills/` directory exists, check the root `/tmp/import-skill-<name>` for `SKILL.md`. If `SKILL.md` is at the root, the root folder is your target skill directory.
+2. Verify that `SKILL.md` exists in the target skill directory. If not, look recursively for a directory containing `SKILL.md`.
 
 ### Step 3: Refactor filenames and file contents
-For all files and directories in the plugin:
+Inside the target skill directory:
 1. Rename any file or directory containing the word `claude` (case-insensitive) to use `gemini` (or `antigravity`) instead. Specifically, rename `CLAUDE.md` to `GEMINI.md`.
 2. Edit file contents (using your editing tools) to replace all occurrences of Claude terms with Gemini terms:
    - `claude-code` or `claudecode` ➜ `antigravity`
-   - `CLAUDE_PLUGIN_ROOT` ➜ `GEMINI_PLUGIN_ROOT`
+   - `CLAUDE_PLUGIN_ROOT` ➜ `GEMINI_SKILL_ROOT`
    - `Claude Code` or `claude code` ➜ `Gemini/Antigravity`
    - `claude` / `Claude` / `CLAUDE` ➜ `gemini` / `Gemini` / `GEMINI`
 3. Maintain the integrity of all code, scripts, paths, and commands, adapting only names and system variables.
 
-### Step 4: Validate and Install
-1. Validate the plugin structure:
+### Step 4: Install the skill
+1. Ensure the destination directory exists:
    ```bash
-   agy plugin validate /tmp/import-plugin-<name>
+   mkdir -p ~/.gemini/skills
    ```
-2. If validation succeeds, install it:
-   ```bash
-   agy plugin install /tmp/import-plugin-<name>
-   ```
-3. If validation fails, read the output, fix the files accordingly, and retry.
+2. Move or copy the target skill directory to `~/.gemini/skills/<skill-name>`, where `<skill-name>` is the name of the folder containing the skill.
 
 ### Step 5: Clean up
 Remove the temporary cloning directory:
 ```bash
-rm -rf /tmp/import-plugin-<name>
+rm -rf /tmp/import-skill-<name>
 ```
 Report the successful installation to the user.
