@@ -5,7 +5,7 @@ A native, instruction-based skill/plugin for **Google Gemini / Antigravity** des
 ## ⚡ Quick Install (One-liner)
 
 ```bash
-mkdir -p ~/.gemini/skills && git clone -b skill https://github.com/tr1xx-tech/claude-to-gemini-converter.git ~/.gemini/skills/claude-to-gemini && rm -rf ~/.gemini/skills/claude-to-gemini/.git
+mkdir -p ~/.gemini/skills && rm -rf ~/.gemini/skills/claude-to-gemini && git clone -b skill https://github.com/tr1xx-tech/claude-to-gemini-converter.git ~/.gemini/skills/claude-to-gemini && rm -rf ~/.gemini/skills/claude-to-gemini/.git
 ```
 ---
 
