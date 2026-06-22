@@ -40,8 +40,14 @@ Inside the target skill directory:
    - `Claude Code` or `claude code` ➜ `Gemini/Antigravity`
    - `claude` / `Claude` / `CLAUDE` ➜ `gemini` / `Gemini` / `GEMINI`
 3. Maintain the integrity of all code, scripts, paths, and commands, adapting only names and system variables.
-4. **Verify YAML Frontmatter in `SKILL.md`:** Ensure that the converted `SKILL.md` contains a proper YAML frontmatter block at the very top (delimited by `---`) with correct `name` and `description` fields (e.g., `name: <skill-name>`). If it is missing or doesn't have the `name` field, add it so the skill doesn't display as `/SKILL`.
-
+4. **Add YAML Frontmatter to `SKILL.md`:** Check if the converted `SKILL.md` has a proper YAML frontmatter block at the very top. If it is missing or incomplete, you MUST prepend a header at the very beginning of the file in exactly this format:
+   ```yaml
+   ---
+   name: <skill-name>
+   description: <short description of the skill>
+   ---
+   ```
+   Without this, Antigravity will display the skill simply as "SKILL" without a proper name and description.
 
 ### Step 4: Install the skill
 1. Ensure the destination directory exists:
